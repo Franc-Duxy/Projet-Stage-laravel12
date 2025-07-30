@@ -8,6 +8,7 @@ class Etape extends Model
 {
     protected $table = 'etapes';
     protected $primaryKey = 'id_etape';
+    public $timestamps = false;
 
     protected $fillable = [
         'nom',

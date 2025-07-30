@@ -16,9 +16,12 @@ return new class extends Migration
             $table->string('nom', 100); // VARCHAR(100) NOT NULL
             $table->string('prenom', 100); // VARCHAR(100) NOT NULL
             $table->string('email', 100)->unique(); // VARCHAR(100) UNIQUE NOT NULL
+            $table->string('CIN', 20)->unique()->after('prenom'); // VARCHAR(20) UNIQUE NOT NULL
+            $table->string('departement', 100)->after('CIN'); // VARCHAR(100) NOT NULL
             $table->string('mot_de_passe', 255); // VARCHAR(255) NOT NULL
             $table->enum('role', ['admin', 'utilisateur'])->default('utilisateur'); // VARCHAR(20) CHECK (role IN ('admin', 'utilisateur'))
-            $table->timestamp('created_at')->useCurrent(); // TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            $table->timestamps();
+
         });
     }
 

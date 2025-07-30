@@ -20,7 +20,6 @@ return new class extends Migration
             $table->text('valeur_texte')->nullable(); // TEXT
             $table->integer('valeur_entier')->nullable(); // INTEGER
             $table->date('valeur_date')->nullable(); // DATE
-            $table->enum('statut', ['en_attente', 'en_cours', 'valide', 'rejete'])->default('en_attente'); // VARCHAR(20) CHECK
             $table->timestamp('date_remplissage')->useCurrent(); // TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         });
     }

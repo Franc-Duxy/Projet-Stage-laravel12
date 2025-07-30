@@ -18,7 +18,6 @@ class TacheRemplie extends Model
         'valeur_texte',
         'valeur_entier',
         'valeur_date',
-        'statut',
         'date_remplissage',
     ];
 
@@ -27,19 +26,10 @@ class TacheRemplie extends Model
         'valeur_texte' => 'string',
         'valeur_entier' => 'integer',
         'valeur_date' => 'date',
-        'statut' => 'string',
         'date_remplissage' => 'datetime',
     ];
 
-    // Validation des valeurs possibles pour statut
-    public function setStatutAttribute($value)
-    {
-        $allowedValues = ['en_attente', 'en_cours', 'valide', 'rejete'];
-        if (!in_array($value, $allowedValues)) {
-            throw new \InvalidArgumentException("Le statut doit être l'un des suivants : " . implode(', ', $allowedValues));
-        }
-        $this->attributes['statut'] = $value;
-    }
+    
 
     // Relations
     public function projet()

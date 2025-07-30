@@ -8,6 +8,7 @@ class EtapeProjet extends Model
 {
     protected $table = 'etapes_projets';
     protected $primaryKey = 'id';
+    public $timestamps = false; // Désactiver les timestamps
 
     protected $fillable = [
         'id_projet',
@@ -18,6 +19,8 @@ class EtapeProjet extends Model
     ];
 
     protected $casts = [
+        'id_projet' => 'integer',
+        'id_etape' => 'integer',
         'statut' => 'string',
         'date_debut' => 'date',
         'date_fin' => 'date',

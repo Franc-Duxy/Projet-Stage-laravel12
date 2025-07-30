@@ -8,16 +8,20 @@ class Projet extends Model
 {
     protected $table = 'projets';
     protected $primaryKey = 'id_projet';
+    public $timestamps = false;
 
     protected $fillable = [
         'nom',
         'description',
+        'date_debut',
         'statut',
     ];
 
     protected $casts = [
+        'nom' => 'string',
+        'description' => 'string',
+        'date_debut' => 'date',
         'statut' => 'string',
-        'date_creation' => 'datetime',
     ];
 
     // Relations
